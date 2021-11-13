@@ -16,29 +16,19 @@ public class Posicion {
 		}
 				
 	private void setFila(int fila) {
-		try {
 			if (fila >= 1 && fila <= 8) {
 				this.fila = fila;
 			}else {
-				throw new Exception("Error de fila");
+				throw new IllegalArgumentException("Error de fila");
 			}
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
-		}
-		
 	}
 	private void setColumna(char columna) {
 		columna = Character.toLowerCase(columna);
-		try {
 			if (columna >= 'a' &&  columna <= 'h') {
 				this.columna = columna;
 			}else {
-				throw new Exception("Error de columna");
-			}
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
-		}
-		
+				throw new IllegalArgumentException("Error de columna");
+			}		
 	}
 	public int getFila() {
 		return fila;
