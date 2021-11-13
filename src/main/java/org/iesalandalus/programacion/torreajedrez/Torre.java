@@ -3,6 +3,12 @@ package org.iesalandalus.programacion.torreajedrez;
 public class Torre{
 	private Color Color;
 	private Posicion Posicion;
+	
+	public Torre() {
+		setColor(Color.NEGRO);;
+		setPosicion(new Posicion(8, 'h'));
+	}
+	
 	private void setColor(Color color) {
 		if (Color == null) {
 			throw new NullPointerException("Error: No se puede definir ese color");
