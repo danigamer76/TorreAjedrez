@@ -20,6 +20,16 @@ public class Torre{
 
 	}
 	
+	public Torre(Color Color, char columna) {
+		if (Color == Color.NEGRO) {
+			setColor(Color.NEGRO);;
+			setPosicion(new Posicion(8, columna));
+		}else {
+			setColor(Color.BLANCO);;
+			setPosicion(new Posicion(1, columna));
+		}
+	}
+	
 	private void setColor(Color color) {
 		if (Color == null) {
 			throw new NullPointerException("Error: No se puede definir ese color");
