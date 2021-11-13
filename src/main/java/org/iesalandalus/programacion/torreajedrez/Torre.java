@@ -9,6 +9,17 @@ public class Torre{
 		setPosicion(new Posicion(8, 'h'));
 	}
 	
+	public Torre(Color Color) {
+		if (Color == Color.NEGRO) {
+			setColor(Color.NEGRO);;
+			setPosicion(new Posicion(8, 'h'));
+		}else {
+			setColor(Color.BLANCO);;
+			setPosicion(new Posicion(1, 'h'));
+		}
+
+	}
+	
 	private void setColor(Color color) {
 		if (Color == null) {
 			throw new NullPointerException("Error: No se puede definir ese color");
