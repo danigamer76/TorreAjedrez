@@ -194,6 +194,11 @@ public class Torre{
 		Torre other = (Torre) obj;
 		return Color == other.Color && Objects.equals(Posicion, other.Posicion);
 	}
+
+	@Override
+	public String toString() {
+		return "Torre " + Color + "[ Posicion=" + Posicion + " ]";
+	}
 	
 	
 }
