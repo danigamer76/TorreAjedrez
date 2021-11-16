@@ -126,4 +126,53 @@ public class Torre{
 			}
 		}
 	}
+
+	public void enroque(Direccion direccion) {
+		//NO SE DEBERIA CONTROLAR LA POSICION DEL REY YA QUE DE ESO SE ENCARGARIA LA CLASE ReyAjedrez
+		if(Color.equals(Color.BLANCO)){
+			if(direccion.equals(Direccion.ENROQUE_CORTO)) {
+//				try {
+					if(Posicion.getFila() == 1 && Posicion.getColumna() == 'f') {
+						setPosicion(new Posicion(1, 'h'));
+					}else {
+						System.out.println("LA TORRE NO ESTA EN POSICION DE ENROQUE");
+					}
+//				} catch (Exception e) {
+//					// TODO: handle exception
+//				}
+			}else if(direccion.equals(Direccion.ENROQUE_LARGO)) {
+//				try {
+					if(Posicion.getFila() == 1 && Posicion.getColumna() == 'd') {
+						setPosicion(new Posicion(1, 'a'));
+					}else {
+						System.out.println("LA TORRE NO ESTA EN POSICION DE ENROQUE");
+					}
+//				} catch (Exception e) {
+//					// TODO: handle exception
+//				}
+			}
+		}else if(Color.equals(Color.NEGRO)){
+			if(direccion.equals(Direccion.ENROQUE_CORTO)) {
+//				try {
+					if(Posicion.getFila() == 8 && Posicion.getColumna() == 'f') {
+						setPosicion(new Posicion(8, 'h'));
+					}else {
+						System.out.println("LA TORRE NO ESTA EN POSICION DE ENROQUE");
+					}
+//				} catch (Exception e) {
+//					// TODO: handle exception
+//				}
+			}else if(direccion.equals(Direccion.ENROQUE_LARGO)) {
+//				try {
+					if(Posicion.getFila() == 8 && Posicion.getColumna() == 'd') {
+						setPosicion(new Posicion(8, 'a'));
+					}else {
+						System.out.println("LA TORRE NO ESTA EN POSICION DE ENROQUE");
+					}
+//				} catch (Exception e) {
+//					// TODO: handle exception
+//				}
+			}
+		}
+	}
 }
