@@ -42,7 +42,7 @@ public class Torre{
 		}
 	}
 	private void setPosicion(Posicion posicion) {
-		new Posicion(this.Posicion);
+		this.Posicion = posicion;
 	}
 	public Color getColor() {
 		return Color;
@@ -197,7 +197,7 @@ public class Torre{
 
 	@Override
 	public String toString() {
-		return "Torre " + Color + "[ Posicion=" + Posicion + " ]";
+		return "Torre " + Color + " [" + Posicion + "]";
 	}
 	
 	

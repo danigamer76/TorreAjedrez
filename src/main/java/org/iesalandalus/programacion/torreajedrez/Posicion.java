@@ -10,16 +10,16 @@ public class Posicion {
 		setFila(fila);
 		setColumna(columna);
 	}
-		public Posicion(Posicion objPosicion) {
-			setFila(objPosicion.fila);
-			setColumna(objPosicion.columna);
+		public Posicion(Posicion posicion) {
+			setFila(posicion.getFila());
+			setColumna(posicion.getColumna());
 		}
 				
 	private void setFila(int fila) {
 			if (fila >= 1 && fila <= 8) {
 				this.fila = fila;
 			}else {
-				throw new IllegalArgumentException("Error de fila");
+				throw new IllegalArgumentException("ERROR: Fila no válida");
 			}
 	}
 	private void setColumna(char columna) {
@@ -27,7 +27,7 @@ public class Posicion {
 			if (columna >= 'a' &&  columna <= 'h') {
 				this.columna = columna;
 			}else {
-				throw new IllegalArgumentException("Error de columna");
+				throw new IllegalArgumentException("ERROR: Columna no válida");
 			}		
 	}
 	public int getFila() {
@@ -53,7 +53,7 @@ public class Posicion {
 	}
 	@Override
 	public String toString() {
-		return "(fila=" + fila + ", columna=" + columna + ")";
+		return "fila=" + fila + ", columna=" + columna;
 	}
 	
 	
