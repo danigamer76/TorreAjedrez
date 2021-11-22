@@ -34,5 +34,16 @@ public class MainApp {
 		}while(eleccion>5 || eleccion<1);
 		return eleccion;
 	}
+	private static char elegirColumnaInicial() {
+		char columna;
+		do {
+			columna = Entrada.caracter();
+			if(columna>'h' || columna<'a') {
+				System.out.println("COLUMNA NO VALIDA");
+			}
+		}while(columna>'h' || columna<'a');
+		return columna;
+		
+	}
 	
 }
