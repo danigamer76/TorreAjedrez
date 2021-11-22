@@ -45,5 +45,13 @@ public class MainApp {
 		return columna;
 		
 	}
+	private static void mostrarMenuDirecciones() {
+		System.out.println("MENU DIRECCIONES");
+		System.out.println("1.Arriba");
+		System.out.println("2.Derecha");
+		System.out.println("3.Izquierda");
+		System.out.println("4.Abajo");
+		System.out.println("5.Salir");
+	}
 	
 }
