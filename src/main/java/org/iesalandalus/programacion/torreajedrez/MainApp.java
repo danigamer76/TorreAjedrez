@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.torreajedrez;
 
+import org.iesalandalus.programacion.utilidades.Entrada;
+
 public class MainApp {
 	private static Torre torre;
 
@@ -12,6 +14,25 @@ public class MainApp {
         } catch (NullPointerException t) {
             System.out.println("ERROR: La torre no se ha creado.");
         }
+	}
+	private static void mostrarMenu() {
+		System.out.println("MENU TORRE");
+		System.out.println("1.Crear Torre por Defecto");
+		System.out.println("2.Crear Torre por Color");
+		System.out.println("3.Crear Torre de un Color y Columna Inicial");
+		System.out.println("4.Mover Peon");
+		System.out.println("5.Salir");
+	}
+	private static int elegirOpcion() {
+		int eleccion = 0;
+		System.out.println("ELIGE LA OPCION:");
+		do {
+			eleccion = Entrada.entero();
+			if(eleccion>5 || eleccion<1) {
+				System.out.println("OPCION NO VALIDA");
+			}
+		}while(eleccion>5 || eleccion<1);
+		return eleccion;
 	}
 	
 }
