@@ -10,10 +10,10 @@ public class MainApp {
 	}
 	private static void mostrarTorre() {
 		try {
-            System.out.println(torre.toString());
-        } catch (NullPointerException t) {
-            System.out.println("ERROR: La torre no se ha creado.");
-        }
+			System.out.println(torre.toString());
+		} catch (NullPointerException t) {
+			System.out.println("ERROR: La torre no se ha creado.");
+		}
 	}
 	private static void mostrarMenu() {
 		System.out.println("MENU TORRE");
@@ -43,7 +43,7 @@ public class MainApp {
 			}
 		}while(columna>'h' || columna<'a');
 		return columna;
-		
+
 	}
 	private static void mostrarMenuDirecciones() {
 		System.out.println("MENU DIRECCIONES");
@@ -51,7 +51,32 @@ public class MainApp {
 		System.out.println("2.Derecha");
 		System.out.println("3.Izquierda");
 		System.out.println("4.Abajo");
-		System.out.println("5.Salir");
 	}
-	
+	private static Direccion elegirDireccion() {
+		Direccion direccion = Direccion.ABAJO;
+		int eleccion;
+		System.out.println("ELIGE LA OPCION:");
+		do {
+			eleccion = Entrada.entero();
+			if(eleccion>4 || eleccion<1) {
+				System.out.println("OPCION NO VALIDA");
+			}
+		}while(eleccion>5 || eleccion<1);
+		switch (eleccion) {
+		case 1:
+			direccion = Direccion.ARRIBA;
+			break;
+		case 2:
+			direccion = Direccion.DERECHA;
+			break;
+		case 3:
+			direccion = Direccion.IZQUIERDA;
+			break;
+		case 4:
+			direccion = Direccion.ABAJO;
+			break;
+		}
+		return direccion;
+	}
+
 }
