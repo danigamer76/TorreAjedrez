@@ -58,11 +58,11 @@ public class MainApp {
 	private static char elegirColumnaInicial() {
 		char columna;
 		do {
-			columna = Entrada.caracter();
-			if(columna>'h' || columna<'a') {
+			columna = Character.toLowerCase(Entrada.caracter());
+			if(columna != 'h' && columna<'a') {
 				System.out.println("COLUMNA NO VALIDA");
 			}
-		}while(columna>'h' || columna<'a');
+		}while(columna != 'h' && columna != 'a');
 		return columna;
 
 	}
@@ -98,6 +98,9 @@ public class MainApp {
 			break;
 		}
 		return direccion;
+	}
+	private static void crearTorreDefecto() {
+		new Torre();
 	}
 
 }
