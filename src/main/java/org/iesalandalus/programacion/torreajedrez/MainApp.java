@@ -102,5 +102,8 @@ public class MainApp {
 	private static void crearTorreDefecto() {
 		new Torre();
 	}
+	private static void crearTorreColor() {
+		new Torre(elegirColor());
+	}
 
 }
