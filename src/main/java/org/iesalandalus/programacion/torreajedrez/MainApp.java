@@ -8,7 +8,9 @@ public class MainApp {
 	private static Torre torre;
 
 	public static void main(String[] args) {
-//		Torre TorreNegra = new Torre();
+				crearTorreDefecto();
+				mostrarTorre();
+				
 	}
 	private static void mostrarTorre() {
 		try {
@@ -74,6 +76,8 @@ public class MainApp {
 		System.out.println("2.Derecha");
 		System.out.println("3.Izquierda");
 		System.out.println("4.Abajo");
+		System.out.println("5.Enroque Corto");
+		System.out.println("6.Enroque Largo");
 	}
 	private static Direccion elegirDireccion() {
 		Direccion direccion = Direccion.ABAJO;
@@ -81,10 +85,10 @@ public class MainApp {
 		System.out.println("ELIGE LA OPCION:");
 		do {
 			eleccion = Entrada.entero();
-			if(eleccion>4 || eleccion<1) {
+			if(eleccion>6 || eleccion<1) {
 				System.out.println("OPCION NO VALIDA");
 			}
-		}while(eleccion>5 || eleccion<1);
+		}while(eleccion>6 || eleccion<1);
 		switch (eleccion) {
 		case 1:
 			direccion = Direccion.ARRIBA;
@@ -98,23 +102,54 @@ public class MainApp {
 		case 4:
 			direccion = Direccion.ABAJO;
 			break;
+		case 5:
+			direccion = Direccion.ENROQUE_CORTO;
+			break;
+		case 6:
+			direccion = Direccion.ENROQUE_LARGO;
+			break;
 		}
 		return direccion;
 	}
 	private static void crearTorreDefecto() {
-		new Torre();
+		torre = new Torre();
 	}
 	private static void crearTorreColor() {
-		new Torre(elegirColor());
+		torre = new Torre(elegirColor());
 	}
 	private static void crearTorreColorColumna() {
-		new Torre(elegirColor(), elegirColumnaInicial());
+		torre = new Torre(elegirColor(), elegirColumnaInicial());
 	}
 	private static void mover() throws OperationNotSupportedException {
 		mostrarMenuDirecciones();
 		Direccion direccion = elegirDireccion();
-		System.out.println("INTRODUCE EL NUMERO DE PASOS:");
-		int pasos = Entrada.entero();
-		torre.mover(direccion, pasos);
+		if(direccion == Direccion.ENROQUE_CORTO || direccion == Direccion.ENROQUE_LARGO) {
+			torre.enrocar(direccion);
+		}else {
+			System.out.println("INTRODUCE EL NUMERO DE PASOS:");
+			int pasos = Entrada.entero();
+			torre.mover(direccion, pasos);
+		}
+		
+	}
+	private static void ejecutarOpcion(int opcion) throws OperationNotSupportedException {
+		switch (opcion) {
+		case 1:
+			crearTorreDefecto();
+			break;
+		case 2:
+			crearTorreColor();
+			break;
+		case 3:
+			crearTorreColorColumna();
+			break;
+		case 4:
+			mover();
+			break;
+		case 5:
+			System.out.println("Hasta Pronto...");
+			break;
+		}
+
 	}
 }
