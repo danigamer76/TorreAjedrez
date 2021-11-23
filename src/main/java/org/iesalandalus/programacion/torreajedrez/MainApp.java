@@ -6,7 +6,7 @@ public class MainApp {
 	private static Torre torre;
 
 	public static void main(String[] args) {
-		Torre TorreNegra = new Torre();
+//		Torre TorreNegra = new Torre();
 	}
 	private static void mostrarTorre() {
 		try {
@@ -33,6 +33,27 @@ public class MainApp {
 			}
 		}while(eleccion>5 || eleccion<1);
 		return eleccion;
+	}
+	private static Color elegirColor() {
+		Color color = null;
+		int eleccion = 0;
+		System.out.println("ELEGIR COLOR: \n1. NEGRO \n2.BLANCO");
+		do {
+			eleccion = Entrada.entero();
+			if(eleccion>2 || eleccion<1) {
+				System.out.println("OPCION NO VALIDA");
+				switch (eleccion) {
+				case 1:
+					color = Color.NEGRO;
+					break;
+
+				case 2:
+					color = Color.BLANCO;
+					break;
+				}
+			}
+		}while(color != Color.BLANCO || color != Color.NEGRO);
+		return color;
 	}
 	private static char elegirColumnaInicial() {
 		char columna;
