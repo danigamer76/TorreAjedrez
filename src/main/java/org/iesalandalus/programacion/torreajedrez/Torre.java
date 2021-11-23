@@ -9,27 +9,27 @@ public class Torre{
 	private Posicion Posicion;
 
 	public Torre() {
-		setColor(Color.NEGRO);;
+		setColor(Color.NEGRA);;
 		setPosicion(new Posicion(8, 'h'));
 	}
 
 	public Torre(Color Color) {
-		if (Color.equals(Color.NEGRO)) {
-			setColor(Color.NEGRO);;
+		if (Color.equals(Color.NEGRA)) {
+			setColor(Color.NEGRA);;
 			setPosicion(new Posicion(8, 'h'));
 		}else {
-			setColor(Color.BLANCO);;
+			setColor(Color.BLANCA);;
 			setPosicion(new Posicion(1, 'h'));
 		}
 
 	}
 
 	public Torre(Color Color, char columna) {
-		if (Color.equals(Color.NEGRO)) {
-			setColor(Color.NEGRO);;
+		if (Color.equals(Color.NEGRA)) {
+			setColor(Color.NEGRA);;
 			setPosicion(new Posicion(8, columna));
 		}else {
-			setColor(Color.BLANCO);;
+			setColor(Color.BLANCA);;
 			setPosicion(new Posicion(1, columna));
 		}
 	}
@@ -52,7 +52,7 @@ public class Torre{
 	}
 
 	public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {
-		if(this.Color.equals(Color.BLANCO)) {
+		if(this.Color.equals(Color.BLANCA)) {
 			if(pasos < 0) {
 				throw new IllegalArgumentException("Pasos invalidos");
 			}else {
@@ -131,31 +131,31 @@ public class Torre{
 
 	public void enrocar(Direccion direccion) throws OperationNotSupportedException{
 		//NO SE DEBERIA CONTROLAR LA POSICION DEL REY YA QUE DE ESO SE ENCARGARIA LA CLASE ReyAjedrez
-		if(Color.equals(Color.BLANCO)){
+		if(Color.equals(Color.BLANCA)){
 			if(direccion.equals(Direccion.ENROQUE_CORTO)) {
-				if(Posicion.getFila() == 1 && Posicion.getColumna() == 'f') {
-					setPosicion(new Posicion(1, 'h'));
+				if(Posicion.getFila() == 1 && Posicion.getColumna() == 'h') {
+					setPosicion(new Posicion(1, 'f'));
 				}else {
 					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no valido");
 				}
 			}else if(direccion.equals(Direccion.ENROQUE_LARGO)) {
-				if(Posicion.getFila() == 1 && Posicion.getColumna() == 'd') {
-					setPosicion(new Posicion(1, 'a'));
+				if(Posicion.getFila() == 1 && Posicion.getColumna() == 'a') {
+					setPosicion(new Posicion(1, 'd'));
 				}else {
 					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no valido");
 				}
 			}
-		}else if(Color.equals(Color.NEGRO)){
+		}else if(Color.equals(Color.NEGRA)){
 			if(direccion.equals(Direccion.ENROQUE_CORTO)) {
 				//				try {
-				if(Posicion.getFila() == 8 && Posicion.getColumna() == 'f') {
-					setPosicion(new Posicion(8, 'h'));
+				if(Posicion.getFila() == 8 && Posicion.getColumna() == 'h') {
+					setPosicion(new Posicion(8, 'f'));
 				}else {
 					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no valido");
 				}
 			}else if(direccion.equals(Direccion.ENROQUE_LARGO)) {
-				if(Posicion.getFila() == 8 && Posicion.getColumna() == 'd') {
-					setPosicion(new Posicion(8, 'a'));
+				if(Posicion.getFila() == 8 && Posicion.getColumna() == 'a') {
+					setPosicion(new Posicion(8, 'd'));
 				}else {
 					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no valido");
 				}

@@ -8,14 +8,18 @@ public class MainApp {
 	private static Torre torre;
 
 	public static void main(String[] args) {
+		int elegir;
 		do {
 			mostrarMenu();
-			ejecutarOpcion(elegirOpcion());
-		}while(elegirOpcion() != 5);
+			elegir = elegirOpcion();
+			ejecutarOpcion(elegir);
+		}while(elegir != 5);
 	}
 	private static void mostrarTorre() {
 		try {
+			System.out.println("-------------------------");
 			System.out.println(torre.toString());
+			System.out.println("-------------------------");
 		} catch (NullPointerException t) {
 			System.out.println("ERROR: La torre no se ha creado.");
 		}
@@ -29,7 +33,7 @@ public class MainApp {
 		System.out.println("5.Salir");
 	}
 	private static int elegirOpcion() {
-		int eleccion = 0;
+		int eleccion;
 		System.out.println("ELIGE LA OPCION:");
 		do {
 			eleccion = Entrada.entero();
@@ -45,26 +49,28 @@ public class MainApp {
 		System.out.println("ELEGIR COLOR: \n1. NEGRO \n2.BLANCO");
 		do {
 			eleccion = Entrada.entero();
-			if(eleccion>2 || eleccion<1) {
-				System.out.println("OPCION NO VALIDA");
 				switch (eleccion) {
 				case 1:
-					color = Color.NEGRO;
+					color = Color.NEGRA;
 					break;
 
 				case 2:
-					color = Color.BLANCO;
+					color = Color.BLANCA;
 					break;
 				}
-			}
-		}while(color != Color.BLANCO || color != Color.NEGRO);
+				if(color != Color.BLANCA && color != Color.NEGRA) {
+					System.out.println("OPCION NO VALIDA");
+				}
+			
+		}while(color != Color.BLANCA && color != Color.NEGRA);
 		return color;
 	}
 	private static char elegirColumnaInicial() {
 		char columna;
+		System.out.println("ELIGE LA COLUMNA INICIAL (A|H)");
 		do {
 			columna = Character.toLowerCase(Entrada.caracter());
-			if(columna != 'h' && columna<'a') {
+			if(columna != 'h' && columna !='a') {
 				System.out.println("COLUMNA NO VALIDA");
 			}
 		}while(columna != 'h' && columna != 'a');
