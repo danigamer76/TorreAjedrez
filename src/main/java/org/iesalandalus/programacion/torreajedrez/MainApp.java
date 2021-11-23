@@ -8,9 +8,7 @@ public class MainApp {
 	private static Torre torre;
 
 	public static void main(String[] args) {
-				crearTorreDefecto();
-				mostrarTorre();
-				
+	
 	}
 	private static void mostrarTorre() {
 		try {
@@ -120,19 +118,27 @@ public class MainApp {
 	private static void crearTorreColorColumna() {
 		torre = new Torre(elegirColor(), elegirColumnaInicial());
 	}
-	private static void mover() throws OperationNotSupportedException {
+	private static void mover() {
 		mostrarMenuDirecciones();
 		Direccion direccion = elegirDireccion();
 		if(direccion == Direccion.ENROQUE_CORTO || direccion == Direccion.ENROQUE_LARGO) {
-			torre.enrocar(direccion);
+			try {
+				torre.enrocar(direccion);
+			} catch (OperationNotSupportedException e) {
+				System.out.println(e.getMessage());
+			}
 		}else {
 			System.out.println("INTRODUCE EL NUMERO DE PASOS:");
 			int pasos = Entrada.entero();
-			torre.mover(direccion, pasos);
+			try {
+				torre.mover(direccion, pasos);
+			} catch (OperationNotSupportedException e) {
+				System.out.println(e.getMessage());
+			}
 		}
 		
 	}
-	private static void ejecutarOpcion(int opcion) throws OperationNotSupportedException {
+	private static void ejecutarOpcion(int opcion)  {
 		switch (opcion) {
 		case 1:
 			crearTorreDefecto();
