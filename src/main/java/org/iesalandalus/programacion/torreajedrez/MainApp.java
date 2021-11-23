@@ -8,7 +8,10 @@ public class MainApp {
 	private static Torre torre;
 
 	public static void main(String[] args) {
-	
+		do {
+			mostrarMenu();
+			ejecutarOpcion(elegirOpcion());
+		}while(elegirOpcion() != 5);
 	}
 	private static void mostrarTorre() {
 		try {
@@ -142,15 +145,19 @@ public class MainApp {
 		switch (opcion) {
 		case 1:
 			crearTorreDefecto();
+			mostrarTorre();
 			break;
 		case 2:
 			crearTorreColor();
+			mostrarTorre();
 			break;
 		case 3:
 			crearTorreColorColumna();
+			mostrarTorre();
 			break;
 		case 4:
 			mover();
+			mostrarTorre();
 			break;
 		case 5:
 			System.out.println("Hasta Pronto...");
